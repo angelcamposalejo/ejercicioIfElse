@@ -8,21 +8,33 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE, LPTSTR cmdLine, int cmdSho
 
 void ejercicioIfElse::Window_Open(Win::Event& e)
 {
-
+	this->radioCentimetros.Checked = true;
+	this->radioPulgadas.Checked = false;
 }
 
 void ejercicioIfElse::btCalcular_Click(Win::Event& e)
 {
+	const bool isPulgadas = radioPulgadas.Checked;
+	const bool isCentimetros = radioCentimetros.Checked;
 	const double entrada = tbxEntrada.DoubleValue;
-	double salida=0.0;
-	if (entrada >= 100)
+	double salida;
+	if (isCentimetros == 1)
 	{
-		salida = entrada*.15;
+		salida = entrada / 0.393701;
+
 	}
 	else
 	{
-		salida = entrada*.20;
+		salida = entrada*0.393701;
 	}
-	tbxAjuste.DoubleValue = salida;
+	tbxSalida.DoubleValue = salida;
+}
+
+void ejercicioIfElse::radioCentimetros_Click(Win::Event& e)
+{
+}
+
+void ejercicioIfElse::radioPulgadas_Click(Win::Event& e)
+{
 }
 
