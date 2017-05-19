@@ -14,15 +14,15 @@ void ejercicioIfElse::Window_Open(Win::Event& e)
 void ejercicioIfElse::btCalcular_Click(Win::Event& e)
 {
 	const double entrada = tbxEntrada.DoubleValue;
-	double z = 30.0;
-	if (entrada >= 10)
+	double salida = 0.0;
+	if (entrada >= 100)
 	{
-		z = 15.0;
+		salida = entrada*.15;
 	}
 	else
 	{
-		z = 222.2;
+		salida = entrada*.20;
 	}
-	this->Text = Sys::Convert::ToString(z);
+	tbxAjuste.DoubleValue = salida;
 }
 
